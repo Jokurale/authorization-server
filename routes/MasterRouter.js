@@ -5,8 +5,13 @@ const express = require("express");
 
 const router = express.Router();
 
-router.use("/", (req, res) => {
-  res.json({ message: "Server is up and running." });
-});
+// ** All needed routes
+
+const IndexRoute = require("./IndexRoute");
+
+// ** End of all needed routes
+
+// ! Route actuall addition
+router.use([IndexRoute]);
 
 module.exports = router;
