@@ -1,4 +1,5 @@
 // This files will be used for gathering all new routes in one place
+// Predefined routes only
 
 const express = require("express");
 
