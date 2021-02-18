@@ -14,6 +14,9 @@ const limiter = rateLimit({
   max: 20,
 });
 
+// *** Routes
+app.use(require("./routes/MasterRouter.js"));
+
 // *** Addons
 app.use(require("body-parser").urlencoded({ extended: true }));
 app.use(require("body-parser").json());
