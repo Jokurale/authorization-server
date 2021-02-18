@@ -1,0 +1,31 @@
+{
+  "name": "authorization-server",
+  "version": "1.0.0",
+  "description": "AaaS cloud model for further jwt intergration",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "authorization-server"
+  },
+  "keywords": [
+    "auth",
+    "cloud",
+    "service",
+    "aaas",
+    "jwt",
+    "oauth2"
+  ],
+  "author": "Michał Podsiadły <podsiadly.michal@protonmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.17",
+    "morgan": "^1.10.0"
+  }
+}
