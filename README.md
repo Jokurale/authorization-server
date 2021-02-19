@@ -10,7 +10,7 @@
 
 - Make sure your npm is up to date.
 - Make sure your MongoDB DBaaS client is online and your credentials are valid.
-- Lack of particicular collections will result with fail-safe triggering and closing the the master app
+- Lack of particicular collections will result in fail-safe triggering and closing the master app
   > Warning! _Fail-safe trigger will launch slave node app to make sure potential clients won't recieve 500 error_
 
 ### Installing 📜
