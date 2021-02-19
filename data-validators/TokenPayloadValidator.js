@@ -3,7 +3,12 @@ const Joi = require("joi");
 const TokenPayloadJoiSchema = Joi.object().keys({
   DisplayName: Joi.string().required().max(150),
   Login: Joi.string().required().min(4).max(50),
-  Rank: Joi.string().required().min(0).max(20),
+  Rank: Joi.string()
+    .required()
+    .lowercase()
+    .min(0)
+    .max(20)
+    .valid("root", "admin", "mod", "user", "employee"),
 });
 
 module.exports = TokenPayloadJoiSchema;
