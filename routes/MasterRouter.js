@@ -12,7 +12,7 @@ const LoginRoute = require("./LoginRoute");
 
 // ** End of all needed routes
 
-// ! Route actual addition
+// ! Route setup
 router.use([LoginRoute, IndexRoute]);
 
 module.exports = router;

@@ -1,4 +1,4 @@
-// *** Library ensures that invalid JSON requst won't crash whole app ***
+// *** Tool ensures that invalid JSON requst won't crash whole app
 module.exports = (err, req, res, next) => {
   if (err instanceof SyntaxError && err.status === 400 && "body" in err) {
     console.error(

@@ -5,9 +5,10 @@ require("dotenv").config({ path: "../.env" });
 
 module.exports = {
   /**
-   * @description Function accepts user login and based on this parameter returns new valid tokenSet, at the same time inserting new tokenSet to the database.
-   * @param {string} login Valid user login which will be converted into payload for further ACCESS TOKEN and REFRESH TOKEN
-   * @returns {Object} Valid tokenSet Object
+   * Function generates new tokens (refresh and access) based on login and actual database-data.
+   * @requires GUARDS - This function needs external route guards to ensure data is valid.
+   * @param {string} login - Login for which new token is being requested.
+   * @returns {object} New, valid token set.
    */
   generate: async (login) => {
     const user = await User.findOne({ login });
@@ -20,16 +21,19 @@ module.exports = {
       rank,
     };
 
+    // Payload-based access token generation
     const accessToken = jwt.sign(payload, process.env.JWT_ACCESS, {
       expiresIn: process.env.JWT_ACCESS_EXPIRY,
     });
 
+    // Payload-based refresh token generation
     const refreshToken = jwt.sign(payload, process.env.JWT_REFRESH, {
       expiresIn: process.env.JWT_REFRESH_EXPIRY,
     });
 
     const tokens = { accessToken, refreshToken };
 
+    // Saving new login-token pair to active token's pool
     Tokens({ login, refreshToken }).save();
 
     return tokens;

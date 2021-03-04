@@ -1,3 +1,5 @@
+// *** Dummy-test tool that will be probably removed in further commits
+
 const Token = require("../database/models/Token.model");
 const User = require("../database/models/User.model");
 

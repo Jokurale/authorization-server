@@ -1,3 +1,5 @@
+// *** Guard based on HasActiveToken util
+
 const HasActiveToken = require("../utils/HasActiveToken");
 
 module.exports = async (req, res, next) => {

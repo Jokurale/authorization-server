@@ -1,3 +1,5 @@
+// *** Password.tools serves as facade between code and real salting
+
 const bcrypt = require("bcrypt");
 
 const salt = process.env.PASS_SALT;

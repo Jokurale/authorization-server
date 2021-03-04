@@ -1,3 +1,5 @@
+// *** Guard based on PasswordIsValid util
+
 const PasswordIsValid = require("../utils/PasswordIsValid");
 
 module.exports = async (req, res, next) => {

@@ -7,10 +7,8 @@ const statistics = require("../tools/ServerStatistics");
 route.get("/", async (req, res) => {
   const stats = await statistics();
 
-  const output = { message: "Service is up and running.", stats };
-
   res.header("Content-Type", "application/json");
-  res.send(output);
+  res.send({ message: "Service is up and running.", stats });
 });
 
 module.exports = route;

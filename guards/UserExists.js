@@ -1,3 +1,5 @@
+// *** Guard based on UserExists util
+
 const UserExists = require("../utils/UserExists.js");
 
 module.exports = async (req, res, next) => {
