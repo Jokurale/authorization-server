@@ -14,15 +14,18 @@ const limiter = rateLimit({
   max: 20,
 });
 
-// *** Routes
-app.use(require("./routes/MasterRouter.js"));
-
 // *** Addons
 app.use(require("body-parser").urlencoded({ extended: true }));
 app.use(require("body-parser").json());
 app.use(require("morgan")("combined"));
 app.use(require("helmet")());
 app.use(limiter);
+
+// *** Invalid JSON prevention
+app.use(require("./tools/JSONValidator.tools.js"));
+
+// *** Routes
+app.use(require("./routes/MasterRouter.js"));
 
 // *** Routing
 app.listen(process.env.DEV_PORT || 5000, () => {

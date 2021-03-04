@@ -8,10 +8,11 @@ const router = express.Router();
 // ** All needed routes
 
 const IndexRoute = require("./IndexRoute");
+const LoginRoute = require("./LoginRoute");
 
 // ** End of all needed routes
 
-// ! Route actuall addition
-router.use([IndexRoute]);
+// ! Route actual addition
+router.use([LoginRoute, IndexRoute]);
 
 module.exports = router;
