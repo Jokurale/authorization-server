@@ -9,10 +9,12 @@ const router = express.Router();
 
 const IndexRoute = require("./IndexRoute");
 const LoginRoute = require("./LoginRoute");
+const LogoutRoute = require("./LogoutRoute");
+const RefreshRoute = require("./RefreshRoute");
 
 // ** End of all needed routes
 
 // ! Route setup
-router.use([LoginRoute, IndexRoute]);
+router.use([LoginRoute, IndexRoute, LogoutRoute, RefreshRoute]);
 
 module.exports = router;

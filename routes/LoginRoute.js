@@ -9,7 +9,7 @@ const PasswordIsValid = require("../guards/PasswordIsValid");
 const HasNoActiveToken = require("../guards/HasNoActiveToken");
 
 // *** Importing Token manager
-const TokenTools = require("../tools/Token.tools");
+const { generate } = require("../tools/Token.tools");
 
 // *** Importing running configuration
 require("dotenv").config({ path: "../.env" });
@@ -25,7 +25,7 @@ route.post(
   async (req, res) => {
     const { login } = req.body;
 
-    const tokens = await TokenTools.generate(login);
+    const tokens = await generate(login);
     res.json(tokens);
   }
 );

@@ -1,8 +1,6 @@
 const { Schema } = require("mongoose");
 const mongoose = require("../Mongo");
 
-mongoose.set("useCreateIndex", true);
-
 module.exports = mongoose.model(
   "Tokens",
   new Schema(
