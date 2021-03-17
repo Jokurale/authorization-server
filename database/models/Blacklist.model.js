@@ -2,10 +2,9 @@ const { Schema } = require("mongoose");
 const mongoose = require("../Mongo");
 
 module.exports = mongoose.model(
-  "Tokens",
+  "Blacklist",
   new Schema(
     {
-      login: String,
       refreshToken: String,
       createdAt: {
         type: Date,

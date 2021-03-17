@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
 const Tokens = require("../database/models/Token.model");
 const User = require("../database/models/User.model");
+const Blacklist = require("../database/models/Blacklist.model");
 require("dotenv").config({ path: "../.env" });
 
 const meta = {
@@ -9,12 +10,6 @@ const meta = {
 };
 
 module.exports = {
-  /**
-   * Function generates new tokens (refresh and access) based on login and actual database-data.
-   * @requires GUARDS - This function needs external route guards to ensure data is valid.
-   * @param {string} login - Login for which new token is being requested.
-   * @returns {object} New, valid token set.
-   */
   generate: async (login) => {
     const user = await User.findOne({ login });
 
@@ -88,5 +83,11 @@ module.exports = {
     );
 
     return { accessToken: newAccessToken };
+  },
+
+  blacklist: async (refreshToken) => {
+    const result = await Blacklist({ refreshToken }).save();
+
+    console.log(result);
   },
 };
