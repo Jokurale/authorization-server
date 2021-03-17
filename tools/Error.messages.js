@@ -11,7 +11,7 @@ module.exports.TOKEN_BLACKLISTED = {
 };
 module.exports.PASSWORD_INVALID = { message: "Password is invalid.", code };
 module.exports.TOKEN_ALREADY_ISSUED = {
-  message: "Token has ąlready been issued.",
+  message: "Token has already been issued.",
   code,
 };
 module.exports.MISSING_PARAM = {
@@ -30,5 +30,10 @@ module.exports.LOGOUT_FAILED = {
 
 module.exports.UNPROCESSABLE_TOKEN = {
   message: "Server could not process your token.",
+  code: 422,
+};
+
+module.exports.JSON_INVALID = {
+  message: "Unproccessable JSON. Syntax Error",
   code: 422,
 };
