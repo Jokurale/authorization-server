@@ -2,9 +2,12 @@
 
 const HasActiveToken = require("../utils/HasActiveToken");
 
+const { TOKEN_ALREADY_ISSUED } = require("../tools/Error.messages");
+const PrettyError = require("../tools/Errors.tools");
+
 module.exports = async (req, res, next) => {
   const { login } = req.body;
 
   if (!(await HasActiveToken(login))) next();
-  else res.json({ error: "Token has already been issued." });
+  else PrettyError(res, TOKEN_ALREADY_ISSUED);
 };

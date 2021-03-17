@@ -2,6 +2,10 @@
 const express = require("express");
 const route = express.Router();
 
+// *** Potential error handling
+const { UNPROCESSABLE_TOKEN } = require("../tools/Error.messages");
+const PrettyError = require("../tools/Errors.tools");
+
 // *** Importing all the required route-guards
 const ContainsAuthToken = require("../guards/ContainsAuthToken");
 
@@ -20,9 +24,7 @@ route.post("/refresh", [/* Request */ ContainsAuthToken], async (req, res) => {
     const tokenResult = await refresh(result.payload.login);
 
     if (tokenResult) res.json(tokenResult);
-  } else {
-    res.json({ error: "Server could not process your token." });
-  }
+  } else PrettyError(res, UNPROCESSABLE_TOKEN);
 });
 
 module.exports = route;
