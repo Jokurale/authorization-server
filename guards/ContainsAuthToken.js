@@ -1,6 +1,6 @@
 // *** Standalone guard
 
-const { TOKEN_IS_MISSING } = require("../tools/Error.messages");
+const { TOKEN_MISSING } = require("../tools/Error.messages");
 const PrettyError = require("../tools/Errors.tools");
 
 module.exports = (req, res, next) => {
@@ -8,6 +8,6 @@ module.exports = (req, res, next) => {
     req.token = req.headers.authorization.split(" ")[1];
     next();
   } else {
-    PrettyError(res, TOKEN_IS_MISSING);
+    PrettyError(res, TOKEN_MISSING);
   }
 };

@@ -6,9 +6,6 @@
     ├── /login
     │   ├── Request: Login and password
     │   └── Response: Token set (Access token and Refresh token) or Error message
-    ├── /logout
-    │   ├── Request: Valid refresh token
-    │   └── Response: Operation result or Error message
-    └── /register
-        ├── Request: Login, Password, and Email
+    └── /logout
+        ├── Request: Valid refresh token
         └── Response: Operation result or Error message

@@ -1,7 +1,6 @@
 const jwt = require("jsonwebtoken");
 const Tokens = require("../database/models/Token.model");
 const User = require("../database/models/User.model");
-const Blacklist = require("../database/models/Blacklist.model");
 require("dotenv").config({ path: "../.env" });
 
 const meta = {
@@ -83,11 +82,5 @@ module.exports = {
     );
 
     return { accessToken: newAccessToken };
-  },
-
-  blacklist: async (refreshToken) => {
-    const result = await Blacklist({ refreshToken }).save();
-
-    console.log(result);
   },
 };
