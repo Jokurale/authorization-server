@@ -16,7 +16,7 @@ app.use(cors());
 // *** Request-limiter config
 const limiter = rateLimit({
   windowMs: 5 * 60 * 1000,
-  max: 20,
+  max: 1000,
 });
 
 // *** Addons
